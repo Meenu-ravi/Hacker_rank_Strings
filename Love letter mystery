@@ -1,0 +1,16 @@
+#!/bin/python
+
+import sys
+
+for x in range(int(raw_input())):
+    s = raw_input()
+    front = s[:len(s)/2]
+    if len(s) % 2 == 0:
+        back = s[len(s)/2:]
+    else:
+        back = s[len(s)/2 + 1:]
+    back = back[::-1]
+    sum = 0
+    for i in range(len(front)):
+        sum = sum + abs(ord(front[i]) - ord(back[i]))
+    print sum
