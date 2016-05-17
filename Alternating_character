@@ -1,0 +1,14 @@
+#!/bin/python
+import sys
+from itertools import groupby
+
+for i in range(int(raw_input())):
+    text = raw_input()
+    tot = 0
+    if 'AA' in text or 'BB' in text:
+        soln = [[char, len(list(each))] for char, each in groupby(text)]
+        for val, i in soln:
+            tot = tot + (i-1)
+        print tot            
+    else:
+        print 0
