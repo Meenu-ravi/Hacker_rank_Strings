@@ -1,0 +1,10 @@
+#!/bin/python
+
+import sys
+
+text = raw_input().lower()
+alpha = 'abcdefghijklmnopqrstuvwxyz'
+if set(alpha) - set(text):
+    print 'not pangram'
+else:
+    print 'pangram'
