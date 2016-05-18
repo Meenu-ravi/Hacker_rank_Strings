@@ -1,0 +1,20 @@
+#!/bin/python
+
+import sys
+stones = [raw_input() for i in range(int(raw_input()))]
+gems = set(stones[0])
+if len(stones) > 1:
+    for i in range(1, len(stones)):
+        gems = set(stones[i]) & gems
+else:
+    gems = []
+print len(gems)
+
+##One liner code with set is
+print(len(set.intersection(*[set(input()) for _ in range(int(input()))])))
+
+Elaborated version :
+rocks = [set(input()) for _ in range(int(input()))]
+gems = set.intersection(*rocks)
+print(len(gems))
+
