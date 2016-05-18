@@ -1,0 +1,16 @@
+#!/bin/python
+
+import sys
+
+def check_funny(text, rev):
+    #This function returns funny or not funny depends on the condition check
+    for i in range(len(text)-1):
+        if abs(ord(text[i])-ord(text[i+1])) != abs(ord(rev[i])-ord(rev[i+1])):
+            return 'Not Funny'
+    return 'Funny'
+
+
+for i in range(int(raw_input().strip())):
+    text = raw_input().strip()
+    rev = text[::-1]
+    print check_funny(text, rev)
