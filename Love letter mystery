@@ -14,3 +14,17 @@ for x in range(int(raw_input())):
     for i in range(len(front)):
         sum = sum + abs(ord(front[i]) - ord(back[i]))
     print sum
+
+
+#Another code that works fine
+#Fetching the middle value as len(s)/2 and subtracting the ascii value of each char from [beg to half] and [end to half]
+#!/bin/python
+
+import sys
+
+for x in range(int(raw_input())):
+    s = raw_input()
+    sum = 0
+    for i in range(len(s)/2):
+        sum = sum + abs(ord(s[i]) - ord(s[len(s)-i -1]))
+    print sum
