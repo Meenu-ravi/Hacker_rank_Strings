@@ -1,0 +1,79 @@
+#!/bin/python
+
+import sys
+
+def palin(text, rev):
+    i = 0
+    j = len(text)-1
+    for i in range(len(text)//2):
+        if text[i] != text[j-i]:
+            if text[:i]+text[i+1:] == (text[:i]+text[i+1:])[::-1]:
+                return i
+            
+    for i in range(len(rev)//2):
+        if rev[i] != rev[j-i]:
+            if rev[:i]+rev[i+1:] == (rev[:i]+rev[i+1:])[::-1]:
+                return len(text)-1-i
+
+for i in range(int(raw_input().strip())):
+    text =  raw_input().strip()
+    rev = text[::-1]
+    if text == rev:
+        print '-1'
+    else:
+        print palin(text, rev)
+        
+  Following are other two codes, that passed 13/14 tcs and two tcs timedout due to large input:
+  #!/bin/python
+
+import sys
+
+def palin(text, rev):
+    i = 0
+    for i in range(len(text)//2):
+        new = text[:i] + text[i+1:]
+        if new == new[::-1]:
+            return i
+        
+    for i in range(len(text)//2):
+        new_rev = rev[:i] + rev[i+1:]
+        if new_rev == new_rev[::-1]:
+            return len(text)-1-i
+
+for i in range(int(raw_input().strip())):
+    text =  raw_input().strip()
+    rev = text[::-1]
+    if text == rev:
+        print '-1'
+    else:
+        print palin(text, rev)
+        
+  Following are other two codes, that passed 12/14 tcs and two tcs timedout due to large input:
+  #!/bin/python
+
+import sys
+
+def palin(text, rev):
+    i = 0
+    for i in range(len(text)):        
+        if rev[i] != rev[::-1][i]:
+            if rev[:i] + rev[i+1:] == (rev[:i] + rev[i+1:])[::-1]:
+                return len(text)-1-i
+        
+        if text[i] != text[::-1][i]:
+            if text[:i] + text[i+1:] == (text[:i] + text[i+1:])[::-1]:
+                return i
+
+for i in range(int(raw_input().strip())):
+    text =  raw_input().strip()
+    rev = text[::-1]
+    if text == rev:
+        print '-1'
+    else:
+        print palin(text, rev)
+        
+        
+  So, the learning here is, when we have a large input and the index to be found will be available either in the first half or the second
+  half, take reversed string in one variable and original in another variable, go for a 'for loop' with range half of the string and
+  inside the loop, check for index in both reversed and original string.
+  
