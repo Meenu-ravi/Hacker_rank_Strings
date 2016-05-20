@@ -1,0 +1,14 @@
+#!/bin/python
+
+import sys
+
+for i in range(int(raw_input().strip())):
+    if (set(raw_input().strip())) & (set(raw_input().strip())):
+        print 'YES'
+    else:
+        print 'NO'
+
+//Another solution using list comprehension
+ans = ['YES' if (set(raw_input().strip())) & (set(raw_input().strip())) else 'NO' for i in range(int(raw_input().strip()))]
+for i in range(len(ans)):
+    print ans[i]
