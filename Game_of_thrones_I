@@ -1,0 +1,22 @@
+#!/bin/python
+
+import sys
+from collections import Counter
+
+def found(val):
+    counts = 0
+    for i in xrange(len(val)):
+        if val[i]%2 != 0:
+            counts = counts + 1
+            if counts >= 2:
+                return False
+        elif counts < 2 and i >= len(val)-1:
+            return True
+
+text = raw_input().strip()
+count = Counter(text)
+val = sorted(count.values())
+if not found(val):
+    print("NO")
+else:
+    print("YES")
