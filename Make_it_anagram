@@ -1,0 +1,7 @@
+#!/bin/python
+
+import sys
+from collections import Counter
+acount = Counter(raw_input().strip())
+bcount = Counter(raw_input().strip())
+print sum((acount - bcount).values() + (bcount - acount).values())
