@@ -5,3 +5,10 @@ from collections import Counter
 acount = Counter(raw_input().strip())
 bcount = Counter(raw_input().strip())
 print sum((acount - bcount).values() + (bcount - acount).values())
+
+
+##Another code
+counts = Counter(raw_input().strip())
+counts.subtract(raw_input().strip())
+print sum(map(abs, counts.values()))
+
